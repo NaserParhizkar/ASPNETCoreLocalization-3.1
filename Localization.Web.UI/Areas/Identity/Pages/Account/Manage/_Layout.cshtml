@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+
+@*@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+}
+
+@{
+    switch (requestCulture.RequestCulture.Culture.ToString())
+    {
+        case Localization.Common.Infrastructure.Culture.Farsi_Iran:
+            {
+                Layout = "/Views/Shared/Layouts/_LayoutRTL";
+            }
+            break;
+
+        case Localization.Common.Infrastructure.Culture.English_UnitedStates:
+            {
+                Layout = "/Views/Shared/Layouts/_LayoutLTR";
+            }
+            break;
+    }
+}*@
+
+<h1>Manage your account</h1>
+
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

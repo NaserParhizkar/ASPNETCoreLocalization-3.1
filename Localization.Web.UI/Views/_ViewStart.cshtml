@@ -1,0 +1,20 @@
+﻿@{ 
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+}
+
+@{
+    switch (requestCulture.RequestCulture.Culture.ToString())
+    {
+        case Localization.Common.Infrastructure.Culture.Farsi_Iran:
+            {
+                Layout = "Layouts/_LayoutRTL";
+            }
+            break;
+
+        case Localization.Common.Infrastructure.Culture.English_UnitedStates:
+            {
+                Layout = "Layouts/_LayoutLTR";
+            }
+            break;
+    }
+}
